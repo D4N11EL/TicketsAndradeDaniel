@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" style="min-height: 100%; position: relative">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}"> X</title>
+
+    <link th:href="@{/css/footer.css}" rel="stylesheet">
+    <link th:href="@{/css/header.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <style>
+
+        .button {
+            height: 150px;
+            width: 600px;
+            position: relative;
+            background-color: transparent;
+            cursor: pointer;
+            border: 2px solid #252525;
+            overflow: hidden;
+            border-radius: 30px;
+            color: #333;
+            transition: all 0.5s ease-in-out;
+            font-size: 34px;
+        }
+
+        .btn-txt {
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .type1::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.5s ease-in-out;
+            background-color: #333;
+            border-radius: 30px;
+            visibility: hidden;
+            height: 10px;
+            width: 10px;
+            z-index: -1;
+        }
+
+        .button:hover {
+            box-shadow: 1px 1px 200px #252525;
+            color: #fff;
+            border: none;
+        }
+
+        .type1:hover::after {
+            visibility: visible;
+            transform: scale(100) translateX(2px);
+        }
+    </style>
+
+</head>
+<body style="margin: 0">
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #31363F">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" style="color: white">
+                    <a class="nav-link" href="/listar">Lista de Tickets</a>
+                </li>
+                <li class="nav-item" style="color: white">
+                    <a class="nav-link" href="/form">Crear Nuevo</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+
+
+    <div class="aler alter-success " th:if="${success != null}" th:text="${success}"></div>
+    <div class="aler alter-danger" th:if="${error != null}" th:text="${error}"></div>
+    <div class="aler alter-warning" th:if="${warning != null}" th:text="${warning}"></div>
+    <div class="aler alter-info" th:if="${info != null}" th:text="${info}"></div>
+</header>
+</body>
+
+<body>
+
+</body>
+<div class="container py-4">
+    <h1 style="text-align: center"> BIENVENIDO AL PROGRAMA DE CREACION DE TICKETS PARA SOPORTE DE SOFTWARE Y
+        HARDWARE
+    </h1>
+
+    <h3>Porfavor, elige una de las opciones que se encuentran arriba a la izquierda para continuar</h3>
+
+</div>
+
+<script th:src="@{/js/popper.min.js}"
+></script>
+<script th:src="@{/js/bootstrap.min.js}"
+></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"
+></script>
+<script th:src="@{/js/header.js}"
+></script>
+
+<body>
+<footer class="site-footer" style="background: #31363F">
+    <div class="container py-8">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6 style="color: white">Hecho por Daniel Andrade: Examen Complexivo </h6>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p style="color: white" class="copyright-text">Copyright &copy; 2024
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

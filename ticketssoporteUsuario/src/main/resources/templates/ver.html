@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-4">
+  <div class="card bg-light">
+    <div class="card-header" th:text="${titulo}"></div>
+
+    <div class="card-body">
+
+        <ul class="list-group">
+            <li style="font-size: 24px" class="list-group-item">Datos de Ticket</li>
+            <li class="list-group-item"><strong>Fecha de Creación:</strong> <span th:text="${ticket.createAt}"></span></li>
+            <li class="list-group-item"><strong>Asunto:</strong> <span th:text="${ticket.asunto}"></span></li>
+            <li class="list-group-item"><strong>Detalle:</strong> <span th:text="${ticket.detalle}"></span></li>
+            <li class="list-group-item"><strong>Departamento:</strong> <span th:text="${ticket.departamento}"></span></li>
+            <li style="font-size: 24px" class="list-group-item">Datos de Cliente</li>
+            <li class="list-group-item"><strong>Cliente:</strong> <span th:text="${ticket.cliente}"></span></li>
+            <li class="list-group-item"><strong>Email:</strong> <span th:text="${ticket.email}"></span></li>
+            <li class="list-group-item"><strong>Teléfono:</strong> <span th:text="${ticket.telefono}"></span></li>
+        </ul>
+
+
+        <img class="img-thumbnail rounded float-left" style="max-width: 25%;" th:src="@{'/uploads/' + ${ticket.foto}}" th:alt="${ticket.foto}"/>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+<footer th:replace="layout/layout :: footer"></footer>
+</html>

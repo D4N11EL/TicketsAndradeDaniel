@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container py-4">
+  <div class="card bg-light">
+    <div style="width: 100%">
+
+      <h1 style="text-align: center" th:text="${titulo}"></h1>
+      <a th:href="@{/form}" class="btn btn-success btn-sm" style="width: 127px; height: 33px; background: #7535b1;">Nuevo Ticket.</a>
+
+
+    </div>
+
+
+    <table class="table caption-top">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>FECHA</th>
+        <th>ESTADO</th>
+        <th>ASUNTO</th>
+        <th>DEPARTAMENTO</th>
+        <th>EDITAR</th>
+        <th>ELIMINAR</th>
+        <th>VER</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="ticket: ${tickets}">
+        <td th:text="${ticket.id}"></td>
+        <td th:text="${ticket.createAt}"></td>
+        <td>
+          <span th:text="${ticket.estado == 1 ? 'open' : 'closed'}"></span>
+        </td>
+        <td th:text="${ticket.asunto}"></td>
+        <td th:text="${ticket.departamento}"></td>
+        <td>
+          <a class="btn btn-primary btn-xs" th:href="@{/form/{id}(id=${ticket.id})}">Editar</a>
+        </td>
+        <td>
+          <a class="btn btn-danger btn-xs" th:href="@{/eliminar/{id}(id=${ticket.id})}" style=>Eliminar</a>
+        </td>
+        <td><a class="btn btn-primary btn-xs" th:href="@{'/ver/' + ${ticket.id}}" th:text="'ver'" style="background: #7535b1"></a></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+</body>
+<footer th:replace="layout/layout :: footer"></footer>
+</html>
